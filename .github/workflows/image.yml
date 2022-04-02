@@ -36,3 +36,13 @@ jobs:
           platforms: linux/amd64,linux/arm,linux/arm64
           push: true
           tags: pipseed/docker-focal-ansible:latest
+      -
+        name: Microsoft Teams Notification
+        uses: skitionek/notify-microsoft-teams@master
+        if: always()
+        with:
+          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          dry_run: True
