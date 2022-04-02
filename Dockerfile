@@ -1,5 +1,5 @@
 # Docker file for my Home Lab
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 LABEL maintainer="pipseed@gmail.com"
 LABEL version="v1.0"

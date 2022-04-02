@@ -35,4 +35,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm,linux/arm64
           push: true
-          tags: pipseed/docker-bionic-ansible:latest
+          tags: pipseed/docker-focal-ansible:latest
