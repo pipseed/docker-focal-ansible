@@ -1,8 +1,14 @@
+---
 name: Build
 
 on:
+  pull_request:
   push:
-    branches: main
+    branches: 
+      - main
+  schedule:
+    - cron: "15 1 * * 0"
+
 
 jobs:
   docker:
@@ -35,7 +41,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm,linux/arm64
           push: true
-          tags: pipseed/docker-focal-ansible:latest
+          tags: ${{ github.repository }}:latest
       -
         name: Microsoft Teams Notification
         uses: skitionek/notify-microsoft-teams@master
